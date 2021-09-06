@@ -1,0 +1,22 @@
+﻿@model VNTU_Test.Entities.Question
+
+<h2>@Model.Title</h2>
+<h3>@Model.Description</h3>
+
+
+<form asp-controller="Test" asp-action="Index" , method="post">
+    @foreach (var answer in Model.Answers)
+    {
+        <div class="form-group">
+            <label >@answer.Text</label>
+            <input name="answer" value="@answer.Id" type="checkbox" />
+        </div>
+    }
+    <button type="submit">Next</button>
+</form> 
+
+
+
+
+
+
