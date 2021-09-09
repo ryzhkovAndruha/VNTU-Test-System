@@ -9,11 +9,13 @@ namespace VNTU_Test.Entities
     {
         public string Title { get; set; }
         public string Description { get; set; }
+        public int NumberOfAnswers { get; set; }
         public List<Answer> Answers { get; set; }
 
         public Question()
         {
             Answers = new List<Answer>();
+            NumberOfAnswers = 0;
         }
     }
 }

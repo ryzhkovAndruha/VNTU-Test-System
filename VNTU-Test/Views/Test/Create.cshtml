@@ -1,0 +1,81 @@
+﻿@model VNTU_Test.Entities.Test
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+
+<h4>Test</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Name" class="control-label"></label>
+                <input asp-for="Name" class="form-control" />
+                <span asp-validation-for="Name" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <input type="submit" value="Add question" asp-action="CreateQuestions" class="btn btn-primary" />
+            </div>
+
+            @if (Model.Questions.Count > Model.NumberOfQuestions)
+            {
+                <div class="form-group">
+                    <label asp-for="Questions[Model.NumberOfQuestions].Title" class="control-label"></label>
+                    <input asp-for="Questions[Model.NumberOfQuestions].Title" class="form-control" />
+                    <span asp-validation-for="Questions[Model.NumberOfQuestions].Title" class="text-danger"></span>
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="Questions[Model.NumberOfQuestions].Description" class="control-label"></label>
+                    <input asp-for="Questions[Model.NumberOfQuestions].Description" class="form-control" />
+                    <span asp-validation-for="Questions[Model.NumberOfQuestions].Description" class="text-danger"></span>
+                </div>
+
+                <div class="form-group">
+                    @Html.Label("NumberOfAnswers");
+                    <label asp-for="Questions[Model.NumberOfQuestions].NumberOfAnswers" class="control-label"></label>
+                    <input asp-for="Questions[Model.NumberOfQuestions].NumberOfAnswers" type="number" />
+                    <span asp-validation-for="Questions[Model.NumberOfQuestions].NumberOfAnswers" class="text-danger"></span>
+                </div>
+
+                @if (Model.Questions[Model.NumberOfQuestions]?.NumberOfAnswers == 0)
+                {
+                    <div class="form-group">
+                        <input type="submit" value="Add answers" asp-action="AddAnswers" class="btn btn-primary" />
+                    </div>
+                }
+                @if (Model.Questions[Model.NumberOfQuestions]?.NumberOfAnswers > 0)
+                {
+                    @for (int i = 0; i < Model.Questions[Model.NumberOfQuestions].NumberOfAnswers; i++)
+                    {
+                        <label asp-for="Questions[Model.NumberOfQuestions].Answers[i].Text" class="control-label"></label>
+                        <input asp-for="Questions[Model.NumberOfQuestions].Answers[i].Text" type="text" />
+                        <span asp-validation-for="Questions[Model.NumberOfQuestions].Answers[i].Text" class="text-danger"></span>
+
+                        <label asp-for="Questions[Model.NumberOfQuestions].Answers[i].IsCorrect" class="control-label"></label>
+                        <input asp-for="Questions[Model.NumberOfQuestions].Answers[i].IsCorrect" type="checkbox" />
+                        <span asp-validation-for="Questions[Model.NumberOfQuestions].Answers[i].IsCorrect" class="text-danger"></span>
+                    }
+
+                        <input type="submit" value="Додати питання" asp-action="AddQuestion" class="btn btn-primary" />
+                 }
+             }
+
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
