@@ -21,6 +21,7 @@ namespace VNTU_Test
             {
                 new Test
                 {
+                    Id = 1,
                     Name = "Основы C#",
                     Questions = new List<Question>(CreateQuestions()),
                     CountOfCorrectAnswers = 0,

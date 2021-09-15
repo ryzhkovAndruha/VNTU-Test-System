@@ -7,6 +7,7 @@ namespace VNTU_Test.Entities
 {
     public class Test
     {
+        public int Id { get; set; }
         public string Name { get; set; }
         public List<Question> Questions { get; set; }
         public int CurrentQuestion { get; set; }
