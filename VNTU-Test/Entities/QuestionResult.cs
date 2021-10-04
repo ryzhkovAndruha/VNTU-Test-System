@@ -8,11 +8,11 @@ namespace VNTU_Test.Entities
     public class QuestionResult
     {
         public int QuestionId { get; set; }
-        public List<string> AnswersId { get; set; }
+        public List<int> AnswersId { get; set; }
 
         public QuestionResult()
         {
-            AnswersId = new List<string>();
+            AnswersId = new List<int>();
         }
     }
 }

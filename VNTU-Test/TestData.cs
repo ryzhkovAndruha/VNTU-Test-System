@@ -42,25 +42,25 @@ namespace VNTU_Test
                     {
                         new Answer
                         {
-                            Id="1",
+                            Id=1,
                             Text = "Инкапсуляция",
                             IsCorrect = true
                         },
                         new Answer
                         {
-                            Id="2",
+                            Id=2,
                             Text = "Возможность создавать статические классы",
                             IsCorrect = false
                         },
                         new Answer
                         {
-                            Id="3",
+                            Id=3,
                             Text = "Полиморфизм",
                             IsCorrect = true
                         },
                         new Answer
                         {
-                            Id="4",
+                            Id=4,
                             Text = "Наследование",
                             IsCorrect = true
                         }
@@ -75,25 +75,25 @@ namespace VNTU_Test
                     {
                         new Answer
                         {
-                            Id="1",
+                            Id=1,
                             Text = "String.Equal(\"hi\", \"hello\");",
                             IsCorrect = true
                         },
                         new Answer
                         {
-                            Id="2",
+                            Id=2,
                             Text = "String.Compare(\"hi\", \"hello\");",
                             IsCorrect = false
                         },
                         new Answer
                         {
-                            Id="3",
+                            Id=3,
                             Text = "String.Check(\"hi\", \"hello\");",
                             IsCorrect = false
                         },
                         new Answer
                         {
-                            Id="4",
+                            Id=4,
                             Text = "String.Match(\"hi\", \"hello\");",
                             IsCorrect = false
                         }
@@ -109,25 +109,25 @@ namespace VNTU_Test
                     {
                         new Answer
                         {
-                            Id="1",
+                            Id=1,
                             Text = "int, char, bool, float, double",
                             IsCorrect = false
                         },
                         new Answer
                         {
-                            Id="2",
+                            Id=2,
                             Text = "Все перечисленные",
                             IsCorrect = false
                         },
                         new Answer
                         {
-                            Id="3",
+                            Id=3,
                             Text = "int, char, bool, float, double, uint, short",
                             IsCorrect = true
                         },
                         new Answer
                         {
-                            Id="4",
+                            Id=4,
                             Text = "Ни один из них",
                             IsCorrect = false
                         }
@@ -143,19 +143,19 @@ namespace VNTU_Test
                     {
                         new Answer
                         {
-                            Id="1",
+                            Id=1,
                             Text = "Использование одного имени для разных методов",
                             IsCorrect = true
                         },
                         new Answer
                         {
-                            Id="2",
+                            Id=2,
                             Text = "Передача слишком больших данных в функцию",
                             IsCorrect = false
                         },
                         new Answer
                         {
-                            Id="3",
+                            Id=3,
                             Text = "Передача слишком большого файла через return",
                             IsCorrect = false
                         },
@@ -171,19 +171,19 @@ namespace VNTU_Test
                     {
                         new Answer
                         {
-                            Id="1",
+                            Id=1,
                             Text = "for, while, do while, foreach",
                             IsCorrect = true
                         },
                         new Answer
                         {
-                            Id="2",
+                            Id=2,
                             Text = "for, while, do while",
                             IsCorrect = false
                         },
                         new Answer
                         {
-                            Id="3",
+                            Id=3,
                             Text = "for, while, foreach",
                             IsCorrect = false
                         },

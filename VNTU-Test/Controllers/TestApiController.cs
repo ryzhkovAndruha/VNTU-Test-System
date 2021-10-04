@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using VNTU_Test.Entities;
+using VNTU_Test.Repositories;
 
 namespace VNTU_Test.Controllers
 {
@@ -12,22 +13,23 @@ namespace VNTU_Test.Controllers
     [ApiController]
     public class TestApiController : ControllerBase
     {
-
+        TestRepository testRepository;
         public TestApiController()
         {
             TestData.CreateTestData();
+            testRepository = new TestRepository();
         }
 
         [HttpGet]
         public ActionResult<List<Test>> Get()
         {
-            return TestData.Tests;
+            return testRepository.GetList();
         }
 
         [HttpGet("{id}")]
         public ActionResult<Test> Get(int id)
         {
-            Test test = TestData.Tests.FirstOrDefault(t => t.Id == id);
+            Test test = testRepository.GetById(id);
             if (test == null)
             {
                 return NotFound();
@@ -43,12 +45,12 @@ namespace VNTU_Test.Controllers
             {
                 return BadRequest();
             }
-            if (!TestData.Tests.Any(t => t.Id == test.Id))
+            if (!testRepository.GetList().Any(t => t.Id == test.Id))
             {
                 NotFound();
             }
 
-            Test testFromDb = TestData.Tests.FirstOrDefault(t => t.Id == test.Id);
+            Test testFromDb = testRepository.GetList().FirstOrDefault(t => t.Id == test.Id);
 
             testFromDb.Name = test.Name;
             testFromDb.Questions = test.Questions;
@@ -64,20 +66,20 @@ namespace VNTU_Test.Controllers
                 return BadRequest();
             }
 
-            TestData.Tests.Add(test);
+            testRepository.Update(test);
             return Ok(test);
         }
 
         [HttpDelete("{id}")]
         public ActionResult<Test> Delete(int id)
         {
-            Test test = TestData.Tests.FirstOrDefault(t => t.Id == id);
+            Test test = testRepository.GetList().FirstOrDefault(t => t.Id == id);
             if (test == null)
             {
                 return NotFound();
             }
 
-            TestData.Tests.Remove(test);
+            testRepository.Delete(id);
             return Ok(test);
         }
 
@@ -88,7 +90,7 @@ namespace VNTU_Test.Controllers
                 return BadRequest();
             }
 
-            Test test = TestData.Tests.FirstOrDefault(t => t.Id == testResult.Id);
+            Test test = testRepository.GetList().FirstOrDefault(t => t.Id == testResult.Id);
             int countOfRightAnswers = 0;
 
             foreach (var result in testResult.QuestionResults)

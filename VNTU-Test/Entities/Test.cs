@@ -12,11 +12,11 @@ namespace VNTU_Test.Entities
         public List<Question> Questions { get; set; }
         public int CurrentQuestion { get; set; }
         public int CountOfCorrectAnswers { get; set; }
-        //public int Result { get; set; }
+        public int Result { get; set; }
 
         public Test()
         {
-
+            Questions = new List<Question>();
         }
     }
 }

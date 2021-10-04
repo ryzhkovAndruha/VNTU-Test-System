@@ -32,7 +32,7 @@ namespace VNTU_Test.Controllers
         }
 
         [HttpPost]
-        public IActionResult Index(string[] answer)
+        public IActionResult Index(int[] answer)
         {
             Test sessionTest = JsonConvert.DeserializeObject<Test>(_session.GetString(CURRENT_TEST));
             Question sessionQuestion = sessionTest.Questions[sessionTest.CurrentQuestion];
